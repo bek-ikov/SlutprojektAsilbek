@@ -29,6 +29,6 @@ public class Gun : MonoBehaviour
                 OnGunShot();
             }
         }
-    }
+    } // 6:17 på weapon system video https://www.youtube.com/watch?v=kXbQMhwj5Uc
     private void OnGunShot() { }
 }
