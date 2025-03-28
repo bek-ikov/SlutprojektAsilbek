@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Submachine Gun
   damage: 16
-  maxDistance: 200
+  maxDistance: 400
   currentAmmo: 31
   magSize: 31
   fireRate: 900
-  reloadingTime: 1.2
-  reloading: 0
+  reloadTime: 1.2
+  reloading: 1
