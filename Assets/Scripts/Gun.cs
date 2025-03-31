@@ -16,9 +16,10 @@ public class Gun : MonoBehaviour
         PlayerShoot.reloadInput += StartReload;
     }
 
+    private void OnDisable() => gunData.reloading = false;
     public void StartReload()
     {
-        if (!gunData.reloading)
+        if (!gunData.reloading && this.gameObject.activeSelf)
         {
             StartCoroutine(Reload());
         }
@@ -35,7 +36,7 @@ public class Gun : MonoBehaviour
         gunData.reloading = false;
     }
 
-    private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
+    private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f) && this.gameObject.activeSelf;
     public void Shoot()
     {
         if (gunData.currentAmmo > 0) 
@@ -44,8 +45,8 @@ public class Gun : MonoBehaviour
             {
                 if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
-                    IDamagable damagaeble = hitInfo.transform.GetComponent<IDamagable>();
-                    damagaeble?.Damage(gunData.damage);
+                    IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
+                    damageable?.Damage(gunData.damage);
                 }
 
                 gunData.currentAmmo--;
@@ -59,10 +60,10 @@ public class Gun : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
 
-        Debug.DrawRay(cam.position, cam.forward); // 0:31 på video https://www.youtube.com/watch?v=kasbsBho9ZM
+        Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance); // 0:31 på video https://www.youtube.com/watch?v=kasbsBho9ZM
     }
-    private void OnGunShot() 
-    { 
- 
+    private void OnGunShot()
+    {
+
     }
 }
