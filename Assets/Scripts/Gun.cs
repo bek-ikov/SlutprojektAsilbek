@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class Gun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
+
+    public LineRenderer bulletTracer;
+    public Transform weaponMuzzle;
 
     float timeSinceLastShot;
     public void Start()
@@ -47,13 +51,25 @@ public class Gun : MonoBehaviour
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.Damage(gunData.damage);
+
+                    bulletTracer.SetPosition(0, weaponMuzzle.position);
+                    bulletTracer.SetPosition(1, weaponMuzzle.position + weaponMuzzle.forward * gunData.maxDistance);
                 }
 
                 gunData.currentAmmo--;
                 timeSinceLastShot = 0;
                 OnGunShot();
+
+                bulletTracer.enabled = true;
+                StartCoroutine(FadeTracer());
             }
         }
+    }
+
+    IEnumerator FadeTracer()
+    {
+        yield return new WaitForSeconds(0.1f);
+        bulletTracer.enabled = false;
     }
 
     private void Update()

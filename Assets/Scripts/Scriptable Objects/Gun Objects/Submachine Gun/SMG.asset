@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Submachine Gun
   damage: 16
   maxDistance: 400
-  currentAmmo: 31
+  currentAmmo: 28
   magSize: 31
   fireRate: 700
   reloadTime: 1.2
-  reloading: 1
+  reloading: 0
