@@ -1260,6 +1260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: a48a56f229dc6014390351e27772d83a, type: 2}
   cam: {fileID: 613948330}
+  bulletTracer: {fileID: 1057197229}
+  weaponMuzzle: {fileID: 1549399328}
 --- !u!1 &613948329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 35a518caa5fbd7b49a479938811fb309, type: 2}
   cam: {fileID: 613948330}
+  bulletTracer: {fileID: 1057197229}
+  weaponMuzzle: {fileID: 494353132}
 --- !u!1 &789314213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2358,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a00999333d7f00d408e2a3ed4d70edc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2377,7 +2381,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
