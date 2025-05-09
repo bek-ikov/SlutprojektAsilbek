@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     Transform player;
+    float chaseRange = 30;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -13,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(player.position, transform.position);
-        if (distance < 30)
+        if (distance < chaseRange)
         {
             // Enemy AI video: https://www.youtube.com/watch?v=b-WZEBLNCik
         }
