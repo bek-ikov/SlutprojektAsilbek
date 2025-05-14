@@ -35,9 +35,15 @@ public class EnemyAI : MonoBehaviour
             if (Time.time > lastAttackTime + attackCooldown)
             {
                 lastAttackTime = Time.time;
-                //AttackPlayer();
+                AttackPlayer();
             }
         }
+    }
+
+    void AttackPlayer()
+    {
+        Debug.Log("Enemy attacks player!");
+        playerHealth.TakeDamage(10);
     }
 
 }
