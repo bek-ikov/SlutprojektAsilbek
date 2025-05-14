@@ -35,10 +35,10 @@ public class EnemyAI : MonoBehaviour
             if (Time.time > lastAttackTime + attackCooldown)
             {
                 lastAttackTime = Time.time;
-                AttackPlayer();
+                //AttackPlayer();
             }
         }
     }
 
 }
-}
+
