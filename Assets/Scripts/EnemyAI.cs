@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     Transform player;
-    public float chaseRange = 30f;
+    public int attackDamage = 20;
     public float attackRange = 2f;
     public float moveSpeed = 5f;
     public float attackCooldown = 1.5f;
@@ -22,16 +22,22 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(player.position, transform.position);
-        if (distance < chaseRange && distance > attackRange)
+        if (distance > attackRange)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
+            // Grounded movement
+            Vector3 direction = player.position - transform.position;
+            direction.y = 0f; // Ignorera vertikala skillnaden
+            direction = direction.normalized;
+
             transform.position += direction * moveSpeed * Time.deltaTime;
-            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-            // Enemy AI video: https://www.youtube.com/watch?v=b-WZEBLNCik
+
+            // Kolla på spelaren horisontellt
+            if (direction != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(direction);
         }
         else if (distance <= attackRange)
         {
-            // Attack the player
+            // Attackera spelaren
             if (Time.time > lastAttackTime + attackCooldown)
             {
                 lastAttackTime = Time.time;
@@ -43,8 +49,9 @@ public class EnemyAI : MonoBehaviour
     void AttackPlayer()
     {
         Debug.Log("Enemy attacks player!");
-        playerHealth.TakeDamage(10);
+        playerHealth.TakeDamage(attackDamage);
     }
 
+            // Enemy AI video: https://www.youtube.com/watch?v=b-WZEBLNCik
 }
 

@@ -26,14 +26,24 @@ public class RangedEnemyAI : MonoBehaviour
 
         if (distance > attackRange)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
+            // Ground movement
+            Vector3 direction = player.position - transform.position;
+            direction.y = 0f; // Ignorera vertikala skillnaden
+            direction = direction.normalized;
+
             transform.position += direction * moveSpeed * Time.deltaTime;
 
-            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+            // Kolla på spelaren horisontellt
+            if (direction != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(direction);
         }
         else
         {
-            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+            // Kolla på spelaren horisontellt även när stilla
+            Vector3 lookDirection = player.position - transform.position;
+            lookDirection.y = 0f;
+            if (lookDirection != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(lookDirection);
 
             if (Time.time > lastShotTime + shootCooldown)
             {
