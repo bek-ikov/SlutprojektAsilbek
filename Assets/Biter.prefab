@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8830561055563924084}
   - component: {fileID: 4555389322185284982}
   - component: {fileID: 7151902862395837756}
+  - component: {fileID: 2087195489292600900}
   m_Layer: 0
   m_Name: Biter
   m_TagString: Untagged
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b55b6e6d5fbba74d8b9925ad5e24324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 50
+  attackDamage: 20
   attackRange: 2
   moveSpeed: 5
   attackCooldown: 1.5
@@ -168,6 +169,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2087195489292600900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614406152673749638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0c84cdb0ad1da499f158b7b2064988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 50
 --- !u!1 &5616189462895108074
 GameObject:
   m_ObjectHideFlags: 0

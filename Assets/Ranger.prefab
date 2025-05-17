@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 7523450396019274189}
   - component: {fileID: 6260213296851320253}
   - component: {fileID: -4324733913220590775}
+  - component: {fileID: -5612272834740807722}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Untagged
@@ -733,6 +734,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-5612272834740807722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8361075860435368100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0c84cdb0ad1da499f158b7b2064988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 100
 --- !u!1 &9072597649228795735
 GameObject:
   m_ObjectHideFlags: 0
