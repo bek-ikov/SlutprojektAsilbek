@@ -78,6 +78,12 @@ public class Gun : MonoBehaviour
 
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance); // 0:31 på video https://www.youtube.com/watch?v=kasbsBho9ZM
     }
+
+    private void OnDestroy()
+    {
+        PlayerShoot.shootInput -= Shoot;
+        PlayerShoot.reloadInput -= StartReload;
+    }
     private void OnGunShot()
     {
 

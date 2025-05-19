@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -22,6 +23,9 @@ public class PlayerHealth : MonoBehaviour
     void deathState()
     {
         Debug.Log("Spelaren har dött!");
+        GameData.finalScore = ScoreManager.Instance.GetScore();
+        GameData.finalWave = WaveManager.CurrentWave;
+        SceneManager.LoadScene(2);
         // Lägg till proper death state här sen
     }
 }

@@ -20,6 +20,7 @@ public class WaveManager : MonoBehaviour
     private int currentWave = 0;
     private int enemiesToSpawn;
     private int aliveEnemies;
+    public static int CurrentWave { get; private set; } = 0;
 
     private bool isSpawningWave = false;
 
@@ -47,6 +48,7 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
 
         currentWave++;
+        CurrentWave = currentWave;
         Debug.Log($"Wave {currentWave} is starting!");
 
         enemiesToSpawn = Mathf.FloorToInt(5 + currentWave * 1.5f);  // scalable formula
