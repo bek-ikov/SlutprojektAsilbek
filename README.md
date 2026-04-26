@@ -1,7 +1,7 @@
 # Zombie Shooter
 
 ## Gameplay Preview
-[Watch Gameplay Video](https://www.youtube.com/watch?v=ndCeWVvo1yY)
+[Watch Gameplay Video](https://www.youtube.com/watch?v=ndCeWVvo1yY) (Swedish voiceover, but everything is showcased)
 
 ## Project Status
 This project was originally developed in Unity 2022 and is no longer actively maintained. 
